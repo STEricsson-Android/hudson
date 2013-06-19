@@ -82,7 +82,7 @@ then
 fi
 
 git config --global user.name $(whoami)@$NODE_NAME
-git config --global user.email jenkins@cyanogenmod.com
+git config --global user.email steandroidjenkins@gmail.com
 
 if [[ "$REPO_BRANCH" =~ "jellybean" || $REPO_BRANCH =~ "cm-10" ]]; then 
    JENKINS_BUILD_DIR=jellybean
@@ -110,7 +110,7 @@ fi
 
 rm -rf .repo/manifests*
 rm -f .repo/local_manifests/dyn-*.xml
-repo init -u $SYNC_PROTO://github.com/CyanogenMod/android.git -b $CORE_BRANCH $MANIFEST
+repo init -u $SYNC_PROTO://github.com/STEricsson-Android/android.git -b $CORE_BRANCH $MANIFEST
 check_result "repo init failed."
 
 # make sure ccache is in PATH
@@ -132,7 +132,7 @@ mkdir -p .repo/local_manifests
 rm -f .repo/local_manifest.xml
 
 rm -rf $WORKSPACE/build_env
-git clone https://github.com/CyanogenMod/cm_build_config.git $WORKSPACE/build_env
+git clone https://github.com//cm_build_config.git $WORKSPACE/build_env
 check_result "Bootstrap failed"
 
 cp $WORKSPACE/build_env/$REPO_BRANCH.xml .repo/local_manifests/dyn-$REPO_BRANCH.xml
