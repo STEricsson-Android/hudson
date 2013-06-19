@@ -139,7 +139,7 @@ cat .repo/manifest.xml
 rm -rf kernel/*
 
 echo Syncing...
-repo sync -d -c > /dev/null
+repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
 
@@ -277,7 +277,7 @@ fi
 
 echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
 
-time mka bacon recoveryzip recoveryimage checkapi -j$THREADS_TO_USE
+time mka bacon recoveryzip recoveryimage checkapi
 check_result "Build failed."
 
 for f in $(ls $OUT/cm-*.zip*)
