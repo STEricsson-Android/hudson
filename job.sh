@@ -5,9 +5,8 @@ then
 fi
 
 cd $WORKSPACE
-mkdir -p android
-cp -f /var/lib/jenkins/workspace/android/. /var/lib/jenkins/workspace/Android/.
-cd Android
+mkdir -p ../android
+cd ../android
 export WORKSPACE=$PWD
 
 if [ ! -d hudson ]
