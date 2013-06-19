@@ -188,7 +188,6 @@ repo manifest -o $WORKSPACE/archive/manifest.xml -r
 mv $TEMPSTASH/* .repo/local_manifests/ 2>/dev/null
 rmdir $TEMPSTASH
 
-rm -f $OUT/cm-*.zip*
 
 UNAME=$(uname)
 
