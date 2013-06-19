@@ -6,7 +6,7 @@ fi
 
 cd $WORKSPACE
 mkdir -p android
-copy ../android/* android/.
+cp ../android/* android/.
 cd android
 export WORKSPACE=$PWD
 
