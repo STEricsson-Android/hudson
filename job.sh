@@ -6,7 +6,7 @@ fi
 
 cd $WORKSPACE
 mkdir -p android
-mv -f /var/lib/jenkins/workspace/android/. /var/lib/jenkins/workspace/Android/.
+cp -f /var/lib/jenkins/workspace/android/. /var/lib/jenkins/workspace/Android/.
 cd Android
 export WORKSPACE=$PWD
 
