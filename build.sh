@@ -84,8 +84,8 @@ fi
 git config --global user.name $(whoami)@$NODE_NAME
 git config --global user.email steandroidjenkins@gmail.com
 
-if [[ "$REPO_BRANCH" =~ "jellybean" || $REPO_BRANCH =~ "cm-10" ]]; then 
-   JENKINS_BUILD_DIR=jellybean
+if [[ "$REPO_BRANCH" =~ "jb-mr1" || $REPO_BRANCH =~ "mr1" ]]; then 
+   JENKINS_BUILD_DIR=jb-mr1
 else
    JENKINS_BUILD_DIR=$REPO_BRANCH
 fi
@@ -114,7 +114,7 @@ repo init -u $SYNC_PROTO://github.com/TeamCanjica/android.git -b $CORE_BRANCH $M
 check_result "repo init failed."
 
 # make sure ccache is in PATH
-if [[ "$REPO_BRANCH" =~ "jellybean" || $REPO_BRANCH =~ "cm-10" ]]
+if [[ "$REPO_BRANCH" =~ "jb-mr1" || $REPO_BRANCH =~ "jb-mr1.1" ]]
 then
 export PATH="$PATH:/opt/local/bin/:$PWD/prebuilts/misc/$(uname|awk '{print tolower($0)}')-x86/ccache"
 export CCACHE_DIR=~/.jb_ccache
@@ -191,53 +191,6 @@ rmdir $TEMPSTASH
 
 UNAME=$(uname)
 
-if [ ! -z "$BUILD_USER_ID" ]
-then
-  export RELEASE_TYPE=CM_EXPERIMENTAL
-fi
-
-if [ "$RELEASE_TYPE" = "CM_NIGHTLY" ]
-then
-  if [ "$REPO_BRANCH" = "gingerbread" ]
-  then
-    export CYANOGEN_NIGHTLY=true
-  else
-    export CM_NIGHTLY=true
-  fi
-elif [ "$RELEASE_TYPE" = "CM_EXPERIMENTAL" ]
-then
-  export CM_EXPERIMENTAL=true
-elif [ "$RELEASE_TYPE" = "CM_RELEASE" ]
-then
-  # gingerbread needs this
-  export CYANOGEN_RELEASE=true
-  # ics needs this
-  export CM_RELEASE=true
-fi
-
-if [ ! -z "$CM_EXTRAVERSION" ]
-then
-  export CM_EXPERIMENTAL=true
-fi
-
-if [ ! -z "$GERRIT_CHANGES" ]
-then
-  export CM_EXPERIMENTAL=true
-  IS_HTTP=$(echo $GERRIT_CHANGES | grep http)
-  if [ -z "$IS_HTTP" ]
-  then
-    python $WORKSPACE/hudson/repopick.py $GERRIT_CHANGES
-    check_result "gerrit picks failed."
-  else
-    python $WORKSPACE/hudson/repopick.py $(curl $GERRIT_CHANGES)
-    check_result "gerrit picks failed."
-  fi
-  if [ ! -z "$GERRIT_XLATION_LINT" ]
-  then
-    python $WORKSPACE/hudson/xlationlint.py $GERRIT_CHANGES
-    check_result "basic XML lint failed."
-  fi
-fi
 
 if [ ! "$(ccache -s|grep -E 'max cache size'|awk '{print $4}')" = "100.0" ]
 then
@@ -279,7 +232,7 @@ echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
 time mka bacon recoveryzip recoveryimage checkapi
 check_result "Build failed."
 
-for f in $(ls $OUT/cm-*.zip*)
+for f in $(ls $OUT/aokp_*.zip*)
 do
   ln $f $WORKSPACE/archive/$(basename $f)
 done
@@ -309,26 +262,3 @@ repo manifest -o $WORKSPACE/archive/core.xml -r
 mv $TEMPSTASH/local_manifests .repo
 rmdir $TEMPSTASH
 
-# chmod the files in case UMASK blocks permissions
-chmod -R ugo+r $WORKSPACE/archive
-
-CMCP=$(which cmcp)
-if [ ! -z "$CMCP" -a ! -z "$CM_RELEASE" ]
-then
-  MODVERSION=$(cat $WORKSPACE/archive/build.prop | grep ro.modversion | cut -d = -f 2)
-  if [ -z "$MODVERSION" ]
-  then
-    MODVERSION=$(cat $WORKSPACE/archive/build.prop | grep ro.cm.version | cut -d = -f 2)
-  fi
-  if [ -z "$MODVERSION" ]
-  then
-    echo "Unable to detect ro.modversion or ro.cm.version."
-    exit 1
-  fi
-  echo Archiving release to S3.
-  for f in $(ls $WORKSPACE/archive)
-  do
-    cmcp $WORKSPACE/archive/$f release/$MODVERSION/$f > /dev/null 2> /dev/null
-    check_result "Failure archiving $f"
-  done
-fi
