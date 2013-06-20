@@ -84,7 +84,7 @@ fi
 git config --global user.name $(whoami)@$NODE_NAME
 git config --global user.email steandroidjenkins@gmail.com
 
-if [[ "$REPO_BRANCH" =~ "jb-mr1" || $REPO_BRANCH =~ "mr1" ]]; then 
+if [[ "$REPO_BRANCH" =~ "jb-mr1" || $REPO_BRANCH =~ "aokp" ]]; then 
    JENKINS_BUILD_DIR=jb-mr1
 else
    JENKINS_BUILD_DIR=$REPO_BRANCH
