@@ -143,13 +143,6 @@ repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
 
-if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
-then
-  $WORKSPACE/hudson/$REPO_BRANCH-setup.sh
-else
-  $WORKSPACE/hudson/cm-setup.sh
-fi
-
 if [ -f .last_branch ]
 then
   LAST_BRANCH=$(cat .last_branch)
