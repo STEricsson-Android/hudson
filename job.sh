@@ -5,13 +5,13 @@ then
 fi
 
 cd $WORKSPACE
-mkdir -p ../android
-cd ../android
+mkdir -p ../aokp-android
+cd ../aokp-android
 export WORKSPACE=$PWD
 
 if [ ! -d hudson ]
 then
-  git clone git://github.com/TeamCanjica/hudson.git
+  git clone git://github.com/TeamCanjica/hudson.git -b aokp
 fi
 
 cd hudson
