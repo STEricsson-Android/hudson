@@ -110,7 +110,7 @@ fi
 
 rm -rf .repo/manifests*
 rm -f .repo/local_manifests/dyn-*.xml
-repo init -u $SYNC_PROTO://github.com/TeamCanjica/android.git -b aokp
+repo init -u $SYNC_PROTO://github.com/TeamCanjica/android.git -b jb-mr1
 check_result "repo init failed."
 
 # make sure ccache is in PATH
