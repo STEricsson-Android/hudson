@@ -5,8 +5,8 @@ then
 fi
 
 cd $WORKSPACE
-mkdir -p ../android
-cd ../android
+mkdir -p ../android-sony
+cd ../android-sony
 export WORKSPACE=$PWD
 
 if [ ! -d hudson ]
