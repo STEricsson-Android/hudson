@@ -11,7 +11,7 @@ export WORKSPACE=$PWD
 
 if [ ! -d hudson ]
 then
-  git clone git://github.com/TeamCanjica/hudson.git
+  git clone git://github.com/TeamCanjica/hudson.git -b sony-master
 fi
 
 cd hudson
