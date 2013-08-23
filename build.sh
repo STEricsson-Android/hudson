@@ -144,14 +144,20 @@ check_result "repo sync failed."
 echo Sync complete.
 
 echo "Cherrypicking Oliver patches - android_frameworks_av"
+cd /android/frameworks/av
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/21/46421/2
 git cherry-pick FETCH_HEAD
+cd ..
 echo "Cherrypicking Oliver patches - android_frameworks_native"
+cd native
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/1
 git cherry-pick FETCH_HEAD
+cd ../..
 echo "Cherrypicking Oliver patches - android_system_core"
+cd system/core
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/32/45032/2
 git cherry-pick FETCH_HEAD
+cd ../../..
 echo "Cherrypicking complete"
 
 if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
