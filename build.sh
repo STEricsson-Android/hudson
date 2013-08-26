@@ -143,6 +143,9 @@ repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
 
+if [ $REPO_BRANCH == "cm10.1" ]
+then
+
 echo "Cherrypicking Oliver patches - android_frameworks_av"
 cd frameworks/av
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/21/46421/2
@@ -159,6 +162,8 @@ git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/cha
 git cherry-pick FETCH_HEAD
 cd ../..
 echo "Cherrypicking complete"
+
+fi
 
 if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
 then
