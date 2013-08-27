@@ -143,7 +143,7 @@ repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
 
-if [ $REPO_BRANCH == "cm10.1" ]
+if [ $REPO_BRANCH == "cm-10.1" ]
 then
 
 echo "Cherrypicking Oliver patches - android_frameworks_av"
