@@ -324,6 +324,14 @@ fi
 
 echo "$REPO_BRANCH-$CORE_BRANCH$RELEASE_MANIFEST" > .last_branch
 
+if [ $KERNEL_ONLY = "true" ]
+then
+echo "Building kernel only"
+time mka bootimage
+echo "Kernel build finished"
+exit 0
+fi
+
 time mka bacon recoveryzip recoveryimage checkapi
 check_result "Build failed."
 
