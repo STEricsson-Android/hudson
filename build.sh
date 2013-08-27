@@ -143,6 +143,8 @@ repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
 
+## CHERRYPICKING COMMITS UNTIL THEY ARE MERGED TO CM SOURCE, (JELLYBEAN ONES ARE ALREADY MERGED)
+
 if [ $REPO_BRANCH == "cm-10.1" ]
 then
 
@@ -159,6 +161,30 @@ cd ../..
 echo "Cherrypicking Oliver patches - android_system_core"
 cd system/core
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/32/45032/2
+git cherry-pick FETCH_HEAD
+cd ../..
+echo "Cherrypicking complete"
+
+fi
+
+if [ $REPO_BRANCH == "cm-10.2" ]
+then
+
+echo "Cherrypicking Oliver patches - android_frameworks_av"
+cd frameworks/av
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/88/47488/1
+git cherry-pick FETCH_HEAD
+cd ..
+echo "Cherrypicking Oliver patches - android_frameworks_native"
+cd native
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/1
+git cherry-pick FETCH_HEAD
+cd ../..
+echo "Cherrypicking Oliver patches - android_system_core"
+cd system/core
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/87/47487/1
+git cherry-pick FETCH_HEAD
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/07/46807/1
 git cherry-pick FETCH_HEAD
 cd ../..
 echo "Cherrypicking complete"
