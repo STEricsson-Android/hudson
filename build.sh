@@ -145,6 +145,9 @@ echo Sync complete.
 
 ## CHERRYPICKING COMMITS UNTIL THEY ARE MERGED TO CM SOURCE, (JELLYBEAN ONES ARE ALREADY MERGED)
 
+if [ $CHERRYPICK_COMMITS = "true" ]
+then
+
 if [ $REPO_BRANCH == "cm-10.1" ]
 then
 
@@ -164,7 +167,6 @@ git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/cha
 git cherry-pick FETCH_HEAD
 cd ../..
 echo "Cherrypicking complete"
-
 fi
 
 if [ $REPO_BRANCH == "cm-10.2" ]
@@ -188,6 +190,7 @@ git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/cha
 git cherry-pick FETCH_HEAD
 cd ../..
 echo "Cherrypicking complete"
+fi
 
 fi
 
