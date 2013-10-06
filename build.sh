@@ -139,7 +139,7 @@ cat .repo/manifest.xml
 rm -rf kernel/*
 
 echo Syncing...
-repo sync -f -d -c
+repo --trace sync -f -d -c
 check_result "repo sync failed."
 echo Sync complete.
 
