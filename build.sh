@@ -3,7 +3,7 @@
 function check_result {
   if [ "0" -ne "$?" ]
   then
-    (repo forall -c "git reset --hard") >/dev/null
+    (repo forall -c "git reset --hard")
     rm -f .repo/local_manifests/dyn-*.xml
     rm -f .repo/local_manifests/roomservice.xml
     echo $1
@@ -139,7 +139,7 @@ cat .repo/manifest.xml
 rm -rf kernel/*
 
 echo Syncing...
-repo sync -f -d -c > /dev/null
+repo sync -f -d -c
 check_result "repo sync failed."
 echo Sync complete.
 
@@ -236,7 +236,7 @@ mv $TEMPSTASH/roomservice.xml .repo/local_manifests/
 repo manifest -o $WORKSPACE/archive/manifest.xml -r
 
 # restore all local manifests
-mv $TEMPSTASH/* .repo/local_manifests/ 2>/dev/null
+mv $TEMPSTASH/* .repo/local_manifests/
 rmdir $TEMPSTASH
 
 
@@ -387,7 +387,7 @@ then
   echo Archiving release to S3.
   for f in $(ls $WORKSPACE/archive)
   do
-    cmcp $WORKSPACE/archive/$f release/$MODVERSION/$f > /dev/null 2> /dev/null
+    cmcp $WORKSPACE/archive/$f release/$MODVERSION/$f
     check_result "Failure archiving $f"
   done
 fi
