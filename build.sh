@@ -71,7 +71,7 @@ export PATH=~/bin:$PATH
 
 export USE_CCACHE=1
 export CCACHE_NLEVELS=4
-export BUILD_WITH_COLORS=0
+export BUILD_WITH_COLORS=1
 
 REPO=$(which repo)
 if [ -z "$REPO" ]
