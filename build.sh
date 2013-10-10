@@ -335,7 +335,7 @@ echo "Kernel build finished"
 exit 0
 fi
 
-time mka bacon recoveryzip recoveryimage checkapi
+time make -j32 bacon recoveryzip recoveryimage checkapi
 check_result "Build failed."
 
 for f in $(ls $OUT/cm-*.zip*)
