@@ -158,7 +158,7 @@ then
                 cd ..
                 echo "Cherrypicking Oliver patches - android_frameworks_native"
                 cd native
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/2
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/1
                 git cherry-pick FETCH_HEAD
                 cd ../..
                 echo "Cherrypicking Oliver patches - android_system_core"
