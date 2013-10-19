@@ -43,8 +43,7 @@ fi
 
 if [ -z "$RELEASE_TYPE" ]
 then
-  echo RELEASE_TYPE not specified
-  exit 1
+  RELEASE_TYPE="CM_NIGHTLY"
 fi
 
 if [ -z "$SYNC_PROTO" ]
