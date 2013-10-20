@@ -174,19 +174,17 @@ then
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
                 cd frameworks/av
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/88/47488/1
+                git fetch http://Rox@review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/1
                 git cherry-pick FETCH_HEAD
                 cd ..
                 echo "Cherrypicking Oliver patches - android_frameworks_native"
                 cd native
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/1
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/1
                 git cherry-pick FETCH_HEAD
                 cd ../..
                 echo "Cherrypicking Oliver patches - android_system_core"
                 cd system/core
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/87/47487/1
-                git cherry-pick FETCH_HEAD
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/07/46807/1
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/1
                 git cherry-pick FETCH_HEAD
                 cd ../..
                 echo "Cherrypicking complete"
