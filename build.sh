@@ -172,13 +172,14 @@ then
         if [ $REPO_BRANCH == "cm-10.2" ]
         then
 
-                echo "Cherrypicking Oliver patches - android_frameworks_av"
-                cd frameworks/av
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/1
-                git cherry-pick FETCH_HEAD
-                cd ..
+# Use TeamCanjica Repo
+#                echo "Cherrypicking Oliver patches - android_frameworks_av"
+#                cd frameworks/av
+#                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/1
+#                git cherry-pick FETCH_HEAD
+#                cd ..
                 echo "Cherrypicking Oliver patches - android_frameworks_native"
-                cd native
+                cd frameworks/native
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/2
                 git cherry-pick FETCH_HEAD
                 cd ../..
