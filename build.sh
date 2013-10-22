@@ -144,10 +144,10 @@ echo Sync complete.
 
 ## CHERRYPICKING COMMITS UNTIL THEY ARE MERGED TO CM SOURCE, (JELLYBEAN ONES ARE ALREADY MERGED)
 
-if [ $CHERRYPICK_COMMITS = "true" ]
+if [ "$CHERRYPICK_COMMITS" = "true" ]
 then
 
-        if [ $REPO_BRANCH == "cm-10.1" ]
+        if [ "$REPO_BRANCH" = "cm-10.1" ]
         then
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
@@ -169,7 +169,7 @@ then
                 echo "Cherrypicking complete"
         fi
 
-        if [ $REPO_BRANCH == "cm-10.2" ]
+        if [ "$REPO_BRANCH" = "cm-10.2" ]
         then
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
