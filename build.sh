@@ -174,7 +174,7 @@ then
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
                 cd frameworks/av
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/2
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/3
                 git cherry-pick FETCH_HEAD
                 cd ..
                 echo "Cherrypicking Oliver patches - android_frameworks_native"
