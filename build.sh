@@ -176,11 +176,12 @@ then
                 cd frameworks/av
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/3
                 git cherry-pick FETCH_HEAD
-                cd ..
-                echo "Cherrypicking Oliver patches - android_frameworks_native"
-                cd native
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/4
-                git cherry-pick FETCH_HEAD
+# Use TeamCanjica frameworks_native until we update this patch
+#                cd ..
+#                echo "Cherrypicking Oliver patches - android_frameworks_native"
+#                cd native
+#                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/4
+#                git cherry-pick FETCH_HEAD
                 cd ../..
                 echo "Cherrypicking Oliver patches - android_system_core"
                 cd system/core
