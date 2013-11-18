@@ -333,7 +333,7 @@ echo "Kernel build finished"
 exit 0
 fi
 
-time make -j32 bacon recoveryzip recoveryimage
+time make -j4 bacon
 check_result "Build failed."
 
 for f in $(ls $OUT/cm-*.zip*)
