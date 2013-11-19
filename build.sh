@@ -192,8 +192,15 @@ then
         
         if [ "$REPO_BRANCH" = "cm-11.0" ]
         then
-        git cherry-pick e7b1a1730f4389de4c2e7d47bea884d8f0220dce
-        git cherry-pick db8e9fa6cb8f831f24a5a8a72d276bafb488a9b8
+        
+                echo "Cherrypicking Audio Patch - Frameworks_Av"
+                cd frameworks/av
+                git fetch https://github.com/Rox-/android_frameworks_av cm-11.0
+                git cherry-pick e7b1a1730f4389de4c2e7d47bea884d8f0220dce
+                git cherry-pick db8e9fa6cb8f831f24a5a8a72d276bafb488a9b8
+                cd ../..
+                echo "Cherrypicking complete"
+        
         fi
 
 fi
