@@ -189,6 +189,12 @@ then
                 cd ../..
                 echo "Cherrypicking complete"
         fi
+        
+        if [ "$REPO_BRANCH" = "cm-11.0" ]
+        then
+        git cherry-pick e7b1a1730f4389de4c2e7d47bea884d8f0220dce
+        git cherry-pick db8e9fa6cb8f831f24a5a8a72d276bafb488a9b8
+        fi
 
 fi
 
