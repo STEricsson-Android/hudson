@@ -199,8 +199,7 @@ then
                 git checkout FETCH_HEAD
                 git fetch https://github.com/Rox-/android_frameworks_av cm-11.0
                 git cherry-pick ed51d3c716dac8e3b85178f71d9ef1effb59aabb
-                git cherry-pick ee3bb2369e55b1abeb66ed7b5bef0b077e311080
-                git cherry-pick 14b5acf92ad49ad0b0c56479b370a1eba6ebdbbb
+                git cherry-pick 2017712259653f163f87b3c196944e54de022f1c
                 cd ../..
                 echo "Cherrypicking complete"
                 
