@@ -198,8 +198,7 @@ then
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/24/53324/2
                 git checkout FETCH_HEAD
                 git fetch https://github.com/Rox-/android_frameworks_av cm-11.0
-                git cherry-pick ed51d3c716dac8e3b85178f71d9ef1effb59aabb
-                git cherry-pick 2017712259653f163f87b3c196944e54de022f1c
+                git cherry-pick 01052f84c41caa4598874214979c8acda892de18
                 cd ../..
                 echo "Cherrypicking complete"
                 
