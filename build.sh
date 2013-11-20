@@ -195,9 +195,8 @@ then
         
                 echo "Cherrypicking Audio Patch - Frameworks_Av"
                 cd frameworks/av
-                git fetch https://github.com/Rox-/android_frameworks_av cm-11.0
-                git cherry-pick e7b1a1730f4389de4c2e7d47bea884d8f0220dce
-                git cherry-pick db8e9fa6cb8f831f24a5a8a72d276bafb488a9b8
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/24/53324/2
+                git checkout FETCH_HEAD
                 cd ../..
                 echo "Cherrypicking complete"
         
