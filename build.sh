@@ -193,15 +193,12 @@ then
         if [ "$REPO_BRANCH" = "cm-11.0" ]
         then
         
-                echo "Cherrypicking Audio and Camera Patch - Frameworks_Av"
+                echo "Cherrypicking Audio Patch - Frameworks_Av"
                 cd frameworks/av
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/24/53324/2
                 git checkout FETCH_HEAD
-                git fetch https://github.com/Rox-/android_frameworks_av cm-11.0
-                git cherry-pick 01052f84c41caa4598874214979c8acda892de18
                 cd ../..
                 echo "Cherrypicking complete"
-                
         
         fi
 
