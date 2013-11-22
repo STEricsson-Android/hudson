@@ -147,8 +147,16 @@ echo Sync complete.
 if [ "$CHERRYPICK_COMMITS" = "true" ]
 then
 
+
+
         if [ "$REPO_BRANCH" = "cm-10.1" ]
         then
+        
+                ## older recoveries compatibility, not merged yet
+                cd build
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_build refs/changes/59/53559/4
+                git cherry-pick FETCH_HEAD
+                cd ..
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
                 cd frameworks/av
