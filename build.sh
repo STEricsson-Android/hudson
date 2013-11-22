@@ -201,6 +201,12 @@ then
                 git cherry-pick FETCH_HEAD
                 cd ..
                 
+                echo "Cherrypicking Camera Fix - System_Core"
+                cd system/core
+                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/75/53075/1
+                git checkout FETCH_HEAD
+                cd ../..
+                
                 echo "Cherrypicking Audio Patch - Frameworks_Av"
                 cd frameworks/av
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/24/53324/2
