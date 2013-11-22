@@ -365,7 +365,7 @@ echo "Kernel build finished"
 exit 0
 fi
 
-time make -j4 bacon
+time make -j6 bacon
 check_result "Build failed."
 
 for f in $(ls $OUT/cm-*.zip*)
