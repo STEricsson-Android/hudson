@@ -201,6 +201,12 @@ then
                 git cherry-pick FETCH_HEAD
                 cd ..
                 
+                echo "Cherrypicking Logcat messages patch"
+                cd bionic
+                git fetch https://github.com/Rox-/android_bionic cm-11.0
+                git cherry-pick eaf8be99e25ed652f20d0cde32b2b08c2ae2dfcf
+                cd ..
+                
                 echo "Cherrypicking Camera Fix - System_Core"
                 cd system/core
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/75/53075/1
