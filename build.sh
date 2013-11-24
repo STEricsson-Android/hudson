@@ -137,10 +137,15 @@ cat .repo/manifest.xml
 ## up posterior syncs due to changes
 rm -rf kernel/*
 
+if [ $SYNC = "true" ]
+then
+
 echo Syncing...
 repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
+
+fi
 
 ## CHERRYPICKING COMMITS UNTIL THEY ARE MERGED TO CM SOURCE, (JELLYBEAN ONES ARE ALREADY MERGED)
 
@@ -363,6 +368,20 @@ time mka bootimage
 echo "Kernel build finished"
 exit 0
 fi
+
+if [ $SINGLE_PACKAGE = "true" ]
+then
+    if [ $PACKAGE_NAME = "" ]
+    then
+        echo "Package name not specified..."
+        exit 1
+    else
+        echo "Building single package only: $PACKAGE_NAME"
+        time mka $PACKAGE_NAME
+        echo "Package build finished"
+    exit 0
+fi
+
 
 time make -j6 bacon
 check_result "Build failed."
