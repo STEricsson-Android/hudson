@@ -107,10 +107,13 @@ else
   MANIFEST=""
 fi
 
-rm -rf .repo/manifests*
-rm -f .repo/local_manifests/dyn-*.xml
-repo init -u $SYNC_PROTO://github.com/TeamCanjica/android.git -b $CORE_BRANCH $MANIFEST
-check_result "repo init failed."
+if [ $SYNC = "true" ]
+then
+    rm -rf .repo/manifests*
+    rm -f .repo/local_manifests/dyn-*.xml
+    repo init -u $SYNC_PROTO://github.com/TeamCanjica/android.git -b $CORE_BRANCH $MANIFEST
+    check_result "repo init failed."
+fi
 
 # make sure ccache is in PATH
 if [[ "$REPO_BRANCH" =~ "jellybean" || $REPO_BRANCH =~ "cm-10" ]]
