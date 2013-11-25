@@ -130,6 +130,9 @@ then
   . ~/.jenkins_profile
 fi
 
+if [ $SINGLE_PACKAGE = "true" ]
+then
+
 mkdir -p .repo/local_manifests
 rm -f .repo/local_manifest.xml
 
@@ -139,6 +142,8 @@ cat .repo/manifest.xml
 ## TEMPORARY: Some kernels are building _into_ the source tree and messing
 ## up posterior syncs due to changes
 rm -rf kernel/*
+
+fi
 
 if [ $SYNC = "true" ]
 then
