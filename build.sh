@@ -203,7 +203,7 @@ then
                 git cherry-pick FETCH_HEAD
                 cd ../..
                 
-                if [ "$LUNCH" = "codina" ]
+                if [ "$DEVICE" = "codina" ]
                 then
                         echo "Cherrypicking GPS patch for codina"
                         cd frameworks/base
