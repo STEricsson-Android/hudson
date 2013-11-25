@@ -383,6 +383,7 @@ then
         time mka $PACKAGE_NAME
         echo "Package build finished"
     exit 0
+    fi
 fi
 
 
