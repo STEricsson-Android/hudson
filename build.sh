@@ -206,7 +206,7 @@ then
                 if [ "$DEVICE" = "codina" ]
                 then
                         echo "GPS patch for codina"
-                        patch -p1 < device/samsung/codina/patches/framework_base.patch
+                        patch -p1 < device/samsung/codina/patches/frameworks_base.patch
                 fi
                 echo "Cherrypicking complete"
         fi
