@@ -384,11 +384,10 @@ then
         echo "Package build finished"
     exit 0
     fi
-fi
-
-
+else
 time make -j6 bacon
 check_result "Build failed."
+fi
 
 for f in $(ls $OUT/cm-*.zip*)
 do
