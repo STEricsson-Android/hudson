@@ -202,6 +202,15 @@ then
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
                 git cherry-pick FETCH_HEAD
                 cd ../..
+                
+                if [ "$LUNCH" = "codina ]
+                then
+                        echo "Cherrypicking GPS patch for codina"
+                        cd frameworks/base
+                        git fetch https://github.com/Rox-/android_frameworks_base cm-10.2
+                        git cherry-pick 57bb77d86e2d22c2da08ce644908df48c47b1897
+                        cd ../..
+                fi
                 echo "Cherrypicking complete"
         fi
         
