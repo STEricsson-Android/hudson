@@ -130,7 +130,7 @@ then
   . ~/.jenkins_profile
 fi
 
-if [ $SINGLE_PACKAGE = "true" ]
+if [ $SINGLE_PACKAGE = "false" ]
 then
 
 mkdir -p .repo/local_manifests
