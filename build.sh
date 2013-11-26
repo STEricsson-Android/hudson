@@ -149,7 +149,6 @@ if [ $SYNC = "true" ]
 then
 
 echo Syncing...
-patch -p1 -R < device/samsung/codina/patches/frameworks_base.patch
 repo sync -f -d -c > /dev/null
 check_result "repo sync failed."
 echo Sync complete.
@@ -203,11 +202,6 @@ then
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
                 git cherry-pick FETCH_HEAD
                 cd ../..
-                if [ "$DEVICE" = "codina" ]
-                then
-                        echo "GPS patch for codina"
-                        patch -p1 < device/samsung/codina/patches/frameworks_base.patch
-                fi
                 echo "Cherrypicking complete"
         fi
         
