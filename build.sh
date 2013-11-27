@@ -224,12 +224,6 @@ then
                 git fetch https://github.com/Rox-/android_bionic cm-11.0
                 git cherry-pick eaf8be99e25ed652f20d0cde32b2b08c2ae2dfcf
                 cd ..
-                
-                echo "Cherrypicking Audio Patch - Frameworks_Av"
-                cd frameworks/av
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/24/53324/2
-                git cherry-pick FETCH_HEAD
-                cd ../..
                 echo "Cherrypicking complete"
         
         fi
