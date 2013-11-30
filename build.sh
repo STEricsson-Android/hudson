@@ -229,7 +229,12 @@ if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
 then
   $WORKSPACE/hudson/$REPO_BRANCH-setup.sh
 else
-  $WORKSPACE/hudson/cm-setup.sh
+
+  if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
+  then
+    $WORKSPACE/hudson/cm-setup.sh
+  fi
+  
 fi
 
 if [ -f .last_branch ]
