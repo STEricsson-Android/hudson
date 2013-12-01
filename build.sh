@@ -184,7 +184,7 @@ then
                 echo "Cherrypicking complete"
         fi
 
-        if [ "$REPO_BRANCH" = "cm-10.2" || "$REPO_BRANCH" = "omni-4.3" ]
+        if [ "$REPO_BRANCH" = "cm-10.2" ] || [ "$REPO_BRANCH" = "omni-4.3" ]
         then
 
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
@@ -205,7 +205,7 @@ then
                 echo "Cherrypicking complete"
         fi
         
-        if [ "$REPO_BRANCH" = "cm-11.0" || "$REPO_BRANCH" = "omni-4.4" ]
+        if [ "$REPO_BRANCH" = "cm-11.0" ] || [ "$REPO_BRANCH" = "omni-4.4" ]
         then
                 echo "Cherrypicking ART fix"
                 cd art
