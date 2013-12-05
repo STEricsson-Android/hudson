@@ -187,14 +187,15 @@ then
         if [ "$REPO_BRANCH" = "cm-10.2" ] || [ "$REPO_BRANCH" = "omni-4.3" ]
         then
         
+        echo "Cherrypicking Oliver patches - android_system_core"
+        cd system/core
+        git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
+        git cherry-pick FETCH_HEAD
+        cd ../..
+        
             if [ "$REPO_BRANCH" = "cm-10.2" ]
             then
-            
-                echo "Cherrypicking Oliver patches - android_system_core"
-                cd system/core
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
-                git cherry-pick FETCH_HEAD
-                cd ../..
+
                 echo "Cherrypicking Oliver patches - android_frameworks_av"
                 cd frameworks/av
                 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/3
@@ -207,12 +208,6 @@ then
                 cd ../..
                 
             else
-                
-                echo "Cherrypicking Oliver patches - android_system_core"
-                cd system/core
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
-                git cherry-pick FETCH_HEAD
-                cd ../..
                 
                 echo "Cherrypicking multiwindow - android_frameworks_base"
                 cd frameworks/base
