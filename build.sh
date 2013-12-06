@@ -221,12 +221,6 @@ then
         
         if [ "$REPO_BRANCH" = "cm-11.0" ] || [ "$REPO_BRANCH" = "omni-4.4" ]
         then
-                echo "Cherrypicking Conditionally Revert - put back the unused virtuals in Vector<> -"
-                cd system/core
-                git fetch https://gerrit.omnirom.org/android_system_core refs/changes/05/3005/1
-                git cherry-pick FETCH_HEAD
-                cd ..
-                
                 echo "Cherrypicking ART fix"
                 cd art
                 git fetch https://github.com/cernekee/android_art monitor-stack-v1
@@ -240,7 +234,9 @@ then
                 cd ..
 
                 echo "Cherrypicking complete"
+        
         fi
+
 fi
 
 if [ -f $WORKSPACE/hudson/$REPO_BRANCH-setup.sh ]
