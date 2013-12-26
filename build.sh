@@ -227,11 +227,14 @@ then
                 git cherry-pick fc2ac71d0d9e147c607bff9371fe2ef25d8470af
                 cd ..
                 
-                echo "Cherrypicking older recoveries compatibility, not merged yet"
-                cd build
-                git fetch http://review.cyanogenmod.org/CyanogenMod/android_build refs/changes/59/53559/4
-                git cherry-pick FETCH_HEAD
-                cd ..
+                if [ "$REPO_BRANCH" = "cm-11.0" ]
+                then
+                        echo "Cherrypicking older recoveries compatibility, not merged yet"
+                        cd build
+                        git fetch http://review.cyanogenmod.org/CyanogenMod/android_build refs/changes/59/53559/4
+                        git cherry-pick FETCH_HEAD
+                        cd ..
+                fi
 
                 echo "Cherrypicking complete"
         
