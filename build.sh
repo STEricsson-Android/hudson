@@ -51,6 +51,13 @@ then
   SYNC_PROTO=https
 fi
 
+if [ $REPO_BRANCH = "omni-4.3" ] || [ $REPO_BRANCH = "omni-4.4" ]
+then
+ROM_NAME="omni_"
+else
+ROM_NAME="cm_"
+fi
+
 # colorization fix in Jenkins
 export CL_RED="\"\033[31m\""
 export CL_GRN="\"\033[32m\""
@@ -83,10 +90,11 @@ fi
 git config --global user.name $(whoami)@$NODE_NAME
 git config --global user.email steandroidjenkins@gmail.com
 
-if [[ "$REPO_BRANCH" =~ "jellybean" || $REPO_BRANCH =~ "cm-10" ]]; then 
-   JENKINS_BUILD_DIR=jellybean
+if [ $ROM_NAME = "omni_" ]
+then
+   JENKINS_BUILD_DIR=omni
 else
-   JENKINS_BUILD_DIR=$REPO_BRANCH
+   JENKINS_BUILD_DIR=cm
 fi
 
 mkdir -p $JENKINS_BUILD_DIR
