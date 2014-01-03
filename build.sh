@@ -92,9 +92,9 @@ git config --global user.email steandroidjenkins@gmail.com
 
 if [ $ROM_NAME = "omni_" ]
 then
-   JENKINS_BUILD_DIR=omni
+   export JENKINS_BUILD_DIR="omni"
 else
-   JENKINS_BUILD_DIR=cm
+   JENKINS_BUILD_DIR="cm"
 fi
 
 mkdir -p $JENKINS_BUILD_DIR
